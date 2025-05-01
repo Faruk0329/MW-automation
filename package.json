@@ -1,0 +1,26 @@
+{
+  "name": "sep-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cucumber-js",
+    "test:tag": "npx cucumber-js --tags @mw",
+    "test:smoke": "npx cucumber-js --tags @smoke",
+    "test:regression": "npx cucumber-js --tags @regression",
+    "Mac-open:report": "open reports/cucumber-report.html",
+    "Windows-open:report": "start reports/cucumber-report.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.7.4"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "cucumber-html-reporter": "^6.0.0"
+  }
+}
