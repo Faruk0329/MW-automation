@@ -1,28 +1,11 @@
-import { LeftMainPage } from "./pages/MainPage.js";
-import { PaymentPlanPage } from "./pages/PaymentPlanPage.js";
-import { StartApplicationPage } from "./pages/LoginPage.js";
-import { ReviewPaymentPage } from "./pages/ReviewPaymentPage.js";
 import { LoginPage } from "./pages/LoginPage.js";
+import { GoogleAuthPopUpPage } from "./pages/GoogleAuthPopUpPage.js";
+import { CompetitionsPage } from "./pages/CompetitionsPage.js";
+
+//import { RewardsPage } from "./pages/RewardsPage.js";
+//import { SalonRougePage} from "./pages/SalonRougePage.js";
+
 // Import OTHER PAGES CLASSES HERE...
-
-
-
-/**
- * @type {import('./pages/MainPage.js').MainPage}
- */
-export let leftMainPage;
-
-
-
-/**
- * @type {import('./pages/LoginPage.js').StartApplicationPage}
- */
-export let startApplicationPage;
-
-/**
- * @type {import('./pages/ReviewPaymentPage.js').ReviewPaymentPage}
- */
-export let reviewPaymentPage;
 
 /**
  * @type {import('playwright').Page}
@@ -37,6 +20,29 @@ export let loginPage;
 
 
 /**
+ * @type {import('./pages/CompetitionsPage.js').CompetitionsPage}
+ */
+export let competitionsPage;
+
+
+/**
+ * @type {import('./pages/RewardsPage.js').RewardsPage}
+ */
+//export let rewardsPage;
+
+
+/**
+ * @type {import('./pages/SalonRougePage.js').SalonRougePage}
+ */
+//export let salonRougePage;
+
+/**
+ * @type {import('./pages/GoogleAuthPopUpPage.js').GoogleAuthPopUpPage}
+ */
+export let googleAuthPopUpPage;
+
+
+/**
  * Initializes the global page elements and instances for the automation framework.
  * 
  * @param {import('playwright').Page} argPage - The Playwright Page instance to be used for interacting with the web pages.
@@ -44,11 +50,12 @@ export let loginPage;
  */
 export const initElements = (argPage) => {
     page = argPage;
-    leftMainPage = new LeftMainPage(page);
-    paymentPlanPage = new PaymentPlanPage(page);
-    startApplicationPage = new StartApplicationPage(page);
-    reviewPaymentPage = new ReviewPaymentPage(page);
     loginPage = new LoginPage(page);
+    googleAuthPopUpPage = new GoogleAuthPopUpPage(page);
+    competitionsPage = new CompetitionsPage(page);
+   
+    //rewardsPage = new RewardsPage(page);
+    //salonRougePage = new SalonRougePage(page);
     // ADD OTHER PAGE CLASS INITIALIZATIONS HERE...
 
 

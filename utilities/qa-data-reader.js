@@ -2,100 +2,57 @@
 import { readFileSync } from 'fs';
 
 /**
- * @typedef {Object} PriceData
- * @property {boolean} active
- * @property {number} baseAmount
- * @property {string} type
- * @property {boolean} upfrontDiscount
- * @property {number} upfrontDiscountAmount
- * @property {boolean} allowCoupons
- * @property {number} couponDiscount
- * @property {number} [numberOfInstallments]
+ * @typedef {Object} MWData
+ * @property {string} mainPageTitle
+ * @property {string} mainPageUrl
+ * @property {string} metaWinDevUrl
+ * @property {string} metawinDevPassword
+ * @property {string} myUserName
+ * @property {string} myPassWord
+ * @property {string} firstCompetitonName
+ * @property {string} firstCompetitonUrl
+ * @property {string} firstCompetitonPrizeCurrency
+
  */
-class Price {
+class QAData {
   /**
-   * @param {PriceData} priceData
+   * @param {MWData} mwData
    */
   constructor({
-    active,
-    baseAmount,
-    type,
-    upfrontDiscount,
-    upfrontDiscountAmount,
-    allowCoupons,
-    couponDiscount,
-    numberOfInstallments
+  
+    mainPageTitle,
+    mainPageUrl,
+    metaWinDevUrl,
+    metawinDevPassword,
+    myUserName,
+    myPassWord,
+    firstCompetitonName,
+    firstCompetitonUrl,
+    firstCompetitonPrizeCurrency
+
   }) {
-    this.active = active;
-    this.baseAmount = baseAmount;
-    this.type = type;
-    this.upfrontDiscount = upfrontDiscount;
-    this.upfrontDiscountAmount = upfrontDiscountAmount;
-    this.allowCoupons = allowCoupons;
-    this.couponDiscount = couponDiscount;
-    this.numberOfInstallments = numberOfInstallments || null;
+    this.mainPageTitle = mainPageTitle;
+    this.mainPageUrl = mainPageUrl;
+    this.metaWinDevUrl = metaWinDevUrl;
+    this.metawinDevPassword = metawinDevPassword;
+    this.myUserName = myUserName;
+    this.myPassWord = myPassWord;
+    this.firstCompetitonName = firstCompetitonName;
+    this.firstCompetitonUrl = firstCompetitonUrl;
+    this.firstCompetitonPrizeCurrency = firstCompetitonPrizeCurrency;
+    // Add other properties as needed
+
   }
 }
 
-/**
- * @typedef {Object} ProductData
- * @property {boolean} available
- * @property {string} productName
- * @property {string} productId
- * @property {boolean} teen
- * @property {string} type
- * @property {string} programId
- * @property {string} programCode
- * @property {string} programName
- * @property {string} startDate
- * @property {string} refundDate
- * @property {string} externalUrl
- * @property {string} terms
- * @property {PriceData[]} prices
- */
-class Product {
-  /** @type {Price[]} */
-  prices;
-
-  /**
-   * @param {ProductData} productData
-   */
-  constructor({
-    available,
-    productName,
-    productId,
-    teen,
-    type,
-    programId,
-    programCode,
-    programName,
-    startDate,
-    refundDate,
-    externalUrl,
-    terms,
-    prices
-  }) {
-    this.available = available;
-    this.productName = productName;
-    this.productId = productId;
-    this.teen = teen;
-    this.type = type;
-    this.programId = programId;
-    this.programCode = programCode;
-    this.programName = programName;
-    this.startDate = startDate;
-    this.refundDate = refundDate;
-    this.externalUrl = externalUrl;
-    this.terms = terms;
-    this.prices = prices.map(price => new Price(price));
-  }
-}
-
-// Instantiate the Product object
-export const productInfo = new Product(JSON.parse(readFileSync('./test-data/qa_data.json', 'utf8')));
 
 
 
+// Instantiate the QAData object with the data from the JSON file and export it use something like this: export const productInfo = new Product(JSON.parse(readFileSync('./test-data/qa_data.json', 'utf8')));
+export const mwData = new QAData(JSON.parse(readFileSync('./test-data/qa_data.json', 'utf8')));
 
-
+// create an import statement for the mwData object
+// import { mwData } from '../../utilities/qa-data-reader.js';
+// use it in your test file like this:
+// console.log(mwData.baseAmount);
 
