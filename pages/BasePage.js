@@ -1,5 +1,7 @@
-import { expect } from '@playwright/test';
-import { BrowserUtility } from '../utilities/BrowserUtility.js';
+
+import { loginPage } from "../globalPagesSetup.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export class BasePage {
 
@@ -8,15 +10,35 @@ export class BasePage {
    */
   constructor(page) {
     this.page = page;
+    this.page = page;
 
   }
+  async loginWithGoogle(email, password) {
+    await this.page.goto(process.env.metaWinDevUrl);
+    await loginPage.metawinPasswordBox.fill(process.env.metawinDevPassword);
+    await loginPage.metawinPasswordBox.press('Enter');
+    await loginPage.noThanksButton.click();
+    await loginPage.connectButton.click();
+    await loginPage.continueWithGoogleButton.click();
+
+    const [popup] = await Promise.all([
+      this.page.waitForEvent('popup'),
+      this.continueButton.click()
+    ]);
+
+    // GoogleAuthPopUpPage should be imported and instantiated here
+    const googleAuthPopUpPage = new GoogleAuthPopUpPage(popup);
+    email= process.env.myUserName;
+    this.email = email;
+    password= process.env.myPassWord;
+    this.password = password;
+    await googleAuthPopUpPage.googleEmailEnter.fill(email);
+    await googleAuthPopUpPage.googleEmailEnter.press('Enter');
+    await googleAuthPopUpPage.googlePasswordEnter.fill(password);
+    await googleAuthPopUpPage.googlePasswordEnter.press('Enter');
+  }
+
   
-  async login(){
-    const code = Buffer.from(`${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`).toString("base64");
-    await this.page.setExtraHTTPHeaders({Authorization: `Basic ${code}`,});
-    await this.page.goto(process.env.SEP_URL);
-    BrowserUtility.verify_title(this.page, 'Checkout | Cydeo');
-    await this.page.waitForTimeout(700);
-  }
+};
 
-}
+  

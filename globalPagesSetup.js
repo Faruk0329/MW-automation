@@ -1,30 +1,11 @@
-import { LeftMainPage } from "./pages/LeftMainPage.js";
-import { PaymentPlanPage } from "./pages/PaymentPlanPage.js";
-import { StartApplicationPage } from "./pages/StartApplicationPage.js";
-import { ReviewPaymentPage } from "./pages/ReviewPaymentPage.js";
+import { LoginPage } from "./pages/LoginPage.js";
+import { GoogleAuthPopUpPage } from "./pages/GoogleAuthPopUpPage.js";
+import { CompetitionsPage } from "./pages/CompetitionsPage.js";
+
+//import { RewardsPage } from "./pages/RewardsPage.js";
+//import { SalonRougePage} from "./pages/SalonRougePage.js";
+
 // Import OTHER PAGES CLASSES HERE...
-
-
-
-/**
- * @type {import('./pages/LeftMainPage.js').LeftMainPage}
- */
-export let leftMainPage;
-
-/**
- * @type {import('./pages/PaymentPlanPage.js').PaymentPlanPage}
- */
-export let paymentPlanPage;
-
-/**
- * @type {import('./pages/StartApplicationPage.js').StartApplicationPage}
- */
-export let startApplicationPage;
-
-/**
- * @type {import('./pages/ReviewPaymentPage.js').ReviewPaymentPage}
- */
-export let reviewPaymentPage;
 
 /**
  * @type {import('playwright').Page}
@@ -32,7 +13,33 @@ export let reviewPaymentPage;
 export let page;
 // ADD OTHER PAGE CLASS REFERENCES HERE...
 
+/**
+ * @type {import('./pages/LoginPage.js').LoginPage}
+ */
+export let loginPage;
 
+
+/**
+ * @type {import('./pages/CompetitionsPage.js').CompetitionsPage}
+ */
+export let competitionsPage;
+
+
+/**
+ * @type {import('./pages/RewardsPage.js').RewardsPage}
+ */
+//export let rewardsPage;
+
+
+/**
+ * @type {import('./pages/SalonRougePage.js').SalonRougePage}
+ */
+//export let salonRougePage;
+
+/**
+ * @type {import('./pages/GoogleAuthPopUpPage.js').GoogleAuthPopUpPage}
+ */
+export let googleAuthPopUpPage;
 
 
 /**
@@ -43,11 +50,13 @@ export let page;
  */
 export const initElements = (argPage) => {
     page = argPage;
-    leftMainPage = new LeftMainPage(page);
-    paymentPlanPage = new PaymentPlanPage(page);
-    startApplicationPage = new StartApplicationPage(page);
-    reviewPaymentPage = new ReviewPaymentPage(page);
-    // INITIALIZE PAGE INSTANCES HERE...
+    loginPage = new LoginPage(page);
+    googleAuthPopUpPage = new GoogleAuthPopUpPage(page);
+    competitionsPage = new CompetitionsPage(page);
+   
+    //rewardsPage = new RewardsPage(page);
+    //salonRougePage = new SalonRougePage(page);
+    // ADD OTHER PAGE CLASS INITIALIZATIONS HERE...
 
 
 
