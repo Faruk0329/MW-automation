@@ -4,11 +4,11 @@ import { initElements } from "../globalPagesSetup.js";
 import fs from 'fs';
 import path from 'path';
 
-const BROWSER_TYPE = "chrome";
+const BROWSER_TYPE = "chrome";//chrome,firefox,webkit
 const HEADLESS_MODE = false;
 const MAXIMIZED_WINDOW = true;
-const SLOW_MOTION_DELAY = 0; // slow mode in milliseconds
-const DEFAULT_TIMEOUT = 20000; // default timeout in milliseconds
+const SLOW_MOTION_DELAY = 2000; // slow mode in milliseconds
+const DEFAULT_TIMEOUT = 50000; // default timeout in milliseconds
 
 
 /**

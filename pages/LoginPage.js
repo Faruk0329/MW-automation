@@ -11,7 +11,7 @@ export class LoginPage extends BasePage {
     this.noThanksButton = page.getByRole("button", {name: "No, thanks",});
     this.connectButton = page.getByRole("button", {name: "Connect"});
     this.continueWithGoogleButton = page.locator("button:has-text('Continue with Google')");
-    this.continueButton = page.getByText("Continue");
+    this.continueButton = page.locator("//button[@type='submit']");
     this.googleEmailEnter = page.locator('[aria-label="Email or phone"]');
     this.googlePasswordEnter = page.locator('[aria-label="Enter your password"]');
   

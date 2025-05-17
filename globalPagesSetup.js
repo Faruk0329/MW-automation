@@ -1,8 +1,10 @@
 import { LoginPage } from "./pages/LoginPage.js";
 import { GoogleAuthPopUpPage } from "./pages/GoogleAuthPopUpPage.js";
 import { CompetitionsPage } from "./pages/CompetitionsPage.js";
+import {MainPage} from "./pages/MainPage.js";
+import { RewardsPage } from "./pages/RewardsPage.js";
 
-//import { RewardsPage } from "./pages/RewardsPage.js";
+
 //import { SalonRougePage} from "./pages/SalonRougePage.js";
 
 // Import OTHER PAGES CLASSES HERE...
@@ -28,7 +30,7 @@ export let competitionsPage;
 /**
  * @type {import('./pages/RewardsPage.js').RewardsPage}
  */
-//export let rewardsPage;
+export let rewardsPage;
 
 
 /**
@@ -41,6 +43,10 @@ export let competitionsPage;
  */
 export let googleAuthPopUpPage;
 
+/**
+ * @type {import('./pages/MainPage.js').MainPage}
+ */
+export let mainPage;
 
 /**
  * Initializes the global page elements and instances for the automation framework.
@@ -53,8 +59,8 @@ export const initElements = (argPage) => {
     loginPage = new LoginPage(page);
     googleAuthPopUpPage = new GoogleAuthPopUpPage(page);
     competitionsPage = new CompetitionsPage(page);
-   
-    //rewardsPage = new RewardsPage(page);
+    mainPage= new MainPage(page);
+    rewardsPage = new RewardsPage(page);
     //salonRougePage = new SalonRougePage(page);
     // ADD OTHER PAGE CLASS INITIALIZATIONS HERE...
 
