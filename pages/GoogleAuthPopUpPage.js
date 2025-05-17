@@ -9,6 +9,7 @@ export class GoogleAuthPopUpPage extends BasePage {
 
     this.googleEmailEnter = page.locator('[aria-label="Email or phone"]');
     this.googlePasswordEnter = page.locator('[aria-label="Enter your password"]');
+    this.googleEmailClick=page.locator('//div[@role="link" and @data-identifier="hparouke@metawin.inc"]');
   
 
 

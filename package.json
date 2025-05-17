@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cucumber-js",
-    "test:tag": "npx cucumber-js --tags @mw",
+    "test:login": "npx cucumber-js --tags @login",
     "test:smoke": "npx cucumber-js --tags @smoke",
     "test:regression": "npx cucumber-js --tags @regression",
-    "test:competitions": "npx cucumber-js --tags @competitions",
+    "test:mainpage": "npx cucumber-js --tags @mainpage",
+     "test:rewards": "npx cucumber-js --tags @rewards",
 
     "Mac-open:report": "open reports/cucumber-report.html",
     "Windows-open:report": "start reports/cucumber-report.html"

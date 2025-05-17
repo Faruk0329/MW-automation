@@ -1,4 +1,4 @@
-@mw
+@login
 @smoke
 @regression
 
